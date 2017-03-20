@@ -1,0 +1,20 @@
+<div class="row">
+<% uri = URI('http://ip-api.com/xml/')
+String @country = Net::HTTP.get(uri).scan(/<country>(.*)<\/country>/).to_s[12...-6]
+Visit.create  country: @country, visited_at: DateTime.now, load_time: 1
+-%>
+<center><h2>Hello stranger from <%=@country%>!</h2><center>
+  <center><h1>Welcome to <%= link_to 'My Blog', controller: 'articles' %><h1><center>
+      <center><h3>Here, have some statistics<h3><center>
+
+  <!-- Line Chart - Single Series -->
+  <div class="col-xs-6">
+    <%= line_chart @visits.group_by_day(:visited_at, format: "%B %d, %Y").count, discrete: true %>
+  </div>
+
+  <!-- Geo Chart -->
+  <div class="col-xs-6">
+    <%= geo_chart @visits.group(:country).count %>
+  </div>
+
+</div>
