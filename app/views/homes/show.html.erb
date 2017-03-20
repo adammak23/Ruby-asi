@@ -15,7 +15,7 @@
 <div class="row">
 <% uri = URI('http://ip-api.com/xml/')
 String @country = Net::HTTP.get(uri).scan(/<country>(.*)<\/country>/).to_s[12...-6]
-Visit.create  country: @country, visited_at: DateTime.now+1, load_time: 1
+Visit.create  country: @country, visited_at: DateTime.now, load_time: 1
 -%>
 <center><h2>Hello stranger from <%=@country%>!</h2><center>
   <center><h1>Welcome to <%= link_to 'My Blog', controller: 'articles' %><h1><center>
