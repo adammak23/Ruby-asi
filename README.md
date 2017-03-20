@@ -1,6 +1,6 @@
 Adam Makiewicz
 
-   [My-Blog]https://ruby-asi.herokuapp.com/
+   [My-Blog](https://ruby-asi.herokuapp.com/)
 
     Ruby Version: 2.3.3p222
     Rails: 5.0.2
