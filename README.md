@@ -1,24 +1,8 @@
-# README
+Adam Makiewicz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+   [My-Blog]https://ruby-asi.herokuapp.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    Ruby Version: 2.3.3p222
+    Rails: 5.0.2
+    Database: postgres
+Strona pozwala tworzyć artykuły oraz komentować je, wyświetla statystyki wejść na stronę (dzienną ilość, oraz ilość wejść w zależności od kraju)
