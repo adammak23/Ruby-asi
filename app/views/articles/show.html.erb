@@ -1,18 +1,40 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<header class="intro-header" style="background-image: url('https://blackrockdigital.github.io/startbootstrap-clean-blog/img/about-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>My Blog</h1>
+                    <hr class="small">
+                      <span class="subheading">A Blog About Nothing in Particular</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<h2>Comments</h2>
-<%= render @article.comments %>
 
+  <div class="post-preview">
+        <center><h2 class="post-title">
+          <%= @article.title %></h2></center>
+         <div class="post-subtitle">
+          <%= @article.text %>
+        </div>
+      </a>
+      <h2>Comments</h2>
+      <%= render @article.comments %>
+    </tr>
+    <p class="post-meta">Posted on <%=DateTime.now.strftime('%Y.%m.%d')%></p>
+</div>
+</div>
+
+</div>
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+</div>
