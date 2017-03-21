@@ -36,7 +36,6 @@
       }
 
       document.write(text);
-      return country;
   }
 
   geoTest();
@@ -44,7 +43,7 @@
 
 
   <%
-  @country=geoTest();
+  #@country=geoTest();
   Visit.create  country: @country, visited_at: DateTime.now, load_time: 1
   -%>
   <center><h1>Welcome to <%= link_to 'My Blog', controller: 'articles' %><h1><center>
