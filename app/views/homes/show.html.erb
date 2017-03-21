@@ -16,42 +16,37 @@
 
 
 
-<body>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-function geoTest() {
-
-    if (google.loader.ClientLocation) {
-
-        var latitude = google.loader.ClientLocation.latitude;
-        var longitude = google.loader.ClientLocation.longitude;
-        var city = google.loader.ClientLocation.address.city;
-        var country = google.loader.ClientLocation.address.country;
-        var country_code = google.loader.ClientLocation.address.country_code;
-        var region = google.loader.ClientLocation.address.region;
-
-        var text = 'Your Location<br /><br />Latitude: ' + latitude + '<br />Longitude: ' + longitude + '<br />City: ' + city + '<br />Country: ' + country + '<br />Country Code: ' + country_code + '<br />Region: ' + region;
-
-    } else {
-
-        var text = 'Google was not able to detect your location';
-
-    }
-
-    document.write(text);
-}
-
-geoTest();
-</script>
-
-
-
 <div class="row">
-<% uri = URI('http://ip-api.com/xml/')
-String @country = Net::HTTP.get(uri).scan(/<country>(.*)<\/country>/).to_s[12...-6]
-Visit.create  country: @country, visited_at: DateTime.now, load_time: 1
--%>
-<center><h2>Hello stranger from <%=@country%>!</h2><center>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+  function geoTest() {
+
+      if (google.loader.ClientLocation) {
+
+          var city = google.loader.ClientLocation.address.city;
+          var country = google.loader.ClientLocation.address.country;
+
+          var text = '<center><h2>Hello stranger from' + city + ', ' + country+'</h2></center>';
+
+
+      } else {
+
+          var text = 'Google was not able to detect your location';
+
+      }
+
+      document.write(text);
+      return country;
+  }
+
+  geoTest();
+  </script>
+
+
+  <%
+  @country=geoTest();
+  Visit.create  country: @country, visited_at: DateTime.now, load_time: 1
+  -%>
   <center><h1>Welcome to <%= link_to 'My Blog', controller: 'articles' %><h1><center>
       <center><h3>Here, have some statistics<h3><center>
 
